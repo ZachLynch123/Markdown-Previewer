@@ -5,9 +5,8 @@ import { ControlLabel, FormGroup, FormControl } from 'react-bootstrap';
 
 class App extends Component {
 
-
   state = {
-    markdown: '',
+    markdown:'# h1 Heading\n## h2 Heading\n### h3 Heading\n#### h4 Heading\n##### h5 Heading\n###### h6 Heading \n## Horizontal Rules\n___\n---\n*** \n \n ## Emphasis \n**This is bold text**\n__This is bold text__\n*This is italic text*\n_This is italic text_ ~~Strikethrough~~' ,
   }
 
   updateMarkdown = md => {
@@ -18,60 +17,17 @@ class App extends Component {
 
   render() {
     let {markdown} = this.state
-    console.log(markdown);
-
     return (
       <div className="App container">
         <div>
           <FormGroup controlId="formControlTextArea">
             <ControlLabel>MD Preview</ControlLabel>
             <FormControl componentClass="textarea" value={markdown}
-            onChange={event => {this.updateMarkdown(event.target.value)}}>
-            # h1 Heading 8-)
-            ## h2 Heading
-            ### h3 Heading
-            #### h4 Heading
-            ##### h5 Heading
-            ###### h6 Heading
-            
-            
-            ## Horizontal Rules
-            
-            ___
-            
-            ---
-            
-            ***
-            
-            
-            ## Typographic replacements
-            
-            Enable typographer option to see result.
-            
-            (c) (C) (r) (R) (tm) (TM) (p) (P) +-
-            
-            test.. test... test..... test?..... test!....
-            
-            !!!!!! ???? ,,  -- ---
-            
-            "Smartypants, double quotes" and 'single quotes'
-            
-            
-            ## Emphasis
-            
-            **This is bold text**
-            
-            __This is bold text__
-            
-            *This is italic text*
-            
-            _This is italic text_
-            
-            ~~Strikethrough~~</FormControl>
+            onChange={event => {this.updateMarkdown(event.target.value)}}></FormControl>
           </FormGroup>
         </div>
         <div>
-          <h1>mkdown output</h1>
+          <h1>markdown output</h1>
           <div dangerouslySetInnerHTML = {{__html: marked(markdown)}} className="markdown"></div>
         </div>
       </div>
